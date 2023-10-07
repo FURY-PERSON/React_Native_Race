@@ -1,3 +1,18 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "react-native", "jest"],
+    "noImplicitAny": false, //warn
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/entities/*": ["./entities/*"],
+      "@/widgets/*": ["./widgets/*"],
+      "@/features/*": ["./features/*"],
+      "@/shared/*": ["./shared/*"],
+      "@/screens/*": ["./screens/*"],
+      "@/app/*": ["./app/*"],
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/**/*.ts", "**/**/*.tsx"],
 }
