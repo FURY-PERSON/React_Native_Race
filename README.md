@@ -1,3 +1,16 @@
+Сделано под обе платформы (ios + android).  
+Для запуска почитать ридмик, должно зараниться без проблем. Никаких дополнительных конфигураций, сверх дефолтной rn-конфигурации не требуется.
+
+```bash
+npm i
+
+cd ios && pod install
+
+npm run android 
+
+npm run ios
+```
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
