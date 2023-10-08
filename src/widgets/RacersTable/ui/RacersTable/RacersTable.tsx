@@ -17,6 +17,7 @@ import {styles} from './styles';
 import {ScrollView} from 'react-native-gesture-handler';
 import {RootNavigationProps} from '@/app/providers/navigation';
 import {useNavigation} from '@react-navigation/native';
+import {getPaginationLabel} from '@/shared/lib/helpers/table/pagintion';
 
 interface RacersTableProps {
   style?: StyleProp<ViewStyle>;
@@ -120,16 +121,14 @@ export const RacersTable = memo((props: RacersTableProps) => {
             </DataTable.Row>
           ))
         ) : (
-          <Text>Empty</Text>
+          <Text>There are no drivers</Text>
         )}
 
         <DataTable.Pagination
           page={page}
           numberOfPages={totalPages + 1}
           onPageChange={onChangePage}
-          label={`${page * limit + 1}-${
-            totalItems < (page + 1) * limit ? totalItems : (page + 1) * limit
-          } of ${totalItems}`}
+          label={getPaginationLabel(page, limit, totalItems)}
           numberOfItemsPerPageList={numberOfItemsPerPageList}
           numberOfItemsPerPage={limit}
           onItemsPerPageChange={onChangeLimit}

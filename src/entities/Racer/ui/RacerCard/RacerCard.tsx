@@ -1,5 +1,5 @@
 import {memo} from 'react';
-import {StyleProp, View, ViewStyle} from 'react-native';
+import {StyleProp, ViewStyle} from 'react-native';
 import {Racer} from '../../types/racer';
 import {Button, Card, Text} from 'react-native-paper';
 

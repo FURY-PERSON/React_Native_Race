@@ -15,6 +15,7 @@ import {
 } from '../../model/selectors/racerCircuitsTable';
 import {numberOfItemsPerPageList} from '../../model/constants/racersTable';
 import {ScrollView} from 'react-native-gesture-handler';
+import {getPaginationLabel} from '@/shared/lib/helpers/table/pagintion';
 
 interface RacerCircuitsTableProps {
   style?: StyleProp<ViewStyle>;
@@ -73,7 +74,7 @@ export const RacerCircuitsTable = memo((props: RacerCircuitsTableProps) => {
 
   return (
     <ScrollView style={style}>
-      <DataTable style={style}>
+      <DataTable>
         <DataTable.Header>
           <DataTable.Title>Date</DataTable.Title>
           <DataTable.Title>Race Name</DataTable.Title>
@@ -98,9 +99,7 @@ export const RacerCircuitsTable = memo((props: RacerCircuitsTableProps) => {
           page={page}
           numberOfPages={totalPages + 1}
           onPageChange={onChangePage}
-          label={`${page * limit + 1}-${
-            totalItems < (page + 1) * limit ? totalItems : (page + 1) * limit
-          } of ${totalItems}`}
+          label={getPaginationLabel(page, limit, totalItems)}
           numberOfItemsPerPageList={numberOfItemsPerPageList}
           numberOfItemsPerPage={limit}
           onItemsPerPageChange={onChangeLimit}
